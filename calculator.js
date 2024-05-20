@@ -14,13 +14,15 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-let operator;
-let num1;
-let num2;
-
 function operate(operator, num1, num2) {
   return operator(num1, num2);
 }
+
+// the operator and enteredNumber will be strings, but the saved result is a number
+// savedResult starts as undefined but gets assigned when pressing an op btn for the first time
+let operator;
+let savedResult;
+let enteredNumber = "";
 
 const numBtnContainer = document.querySelector(".number-btn-container");
 
