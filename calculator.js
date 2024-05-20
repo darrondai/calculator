@@ -21,3 +21,11 @@ let num2;
 function operate(operator, num1, num2) {
   return operator(num1, num2);
 }
+
+const numBtnContainer = document.querySelector(".number-btn-container");
+
+numBtnContainer.addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    console.log(+event.target.value);
+  }
+});
