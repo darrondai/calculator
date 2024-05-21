@@ -40,12 +40,21 @@ let operator;
 let savedResult = 0;
 let enteredNumber = "";
 
-const numBtnContainer = document.querySelector(".number-btn-container");
+const display = document.querySelector(".display");
+function updateDisplay() {
+  if (enteredNumber) {
+    display.textContent = enteredNumber;
+  } else {
+    display.textContent = savedResult;
+  }
+}
 
+const numBtnContainer = document.querySelector(".number-btn-container");
 numBtnContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
     // string concatenation
     enteredNumber += event.target.value;
+    updateDisplay();
     console.log(enteredNumber);
   }
 });
@@ -70,6 +79,7 @@ operatorBtnContainer.addEventListener("click", (event) => {
     }
     // parse and save new operator, and flush entered number
     enteredNumber = "";
+    updateDisplay();
     const operatorString = event.target.value;
     operator = parseOperator(operatorString);
   }
@@ -81,6 +91,7 @@ equalBtn.addEventListener("click", () => {
   savedResult = operate(operator, savedResult, +enteredNumber);
   operator = "";
   enteredNumber = "";
+  updateDisplay();
   console.log(savedResult);
 });
 
@@ -90,6 +101,7 @@ clearBtn.addEventListener("click", () => {
   operator = "";
   savedResult = 0;
   enteredNumber = "";
+  updateDisplay();
 });
 
 // show the saved result after operating, and use it as the first number for any operation
