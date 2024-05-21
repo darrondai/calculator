@@ -2,7 +2,20 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+}
+
 .calc-frame {
+  aspect-ratio: 2 / 3;
+  width: 500px;
   background-color: grey;
   border: 2px solid black;
+}
+
+.display {
+  background-color: black;
+  color: white;
+  text-align: right;
 }
