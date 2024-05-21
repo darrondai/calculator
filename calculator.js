@@ -66,6 +66,7 @@ numBtnContainer.addEventListener("click", (event) => {
 const operatorBtnContainer = document.querySelector(".operator-btn-container");
 operatorBtnContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
+    const operatorString = event.target.value;
     // if no previously queued operator, we save the entered number to the saved result
     // should be able to overwrite previous savedresult as long as no queued operator
     if (!operator) {
@@ -77,6 +78,11 @@ operatorBtnContainer.addEventListener("click", (event) => {
     }
     // otherwise, calc using previously saved operator(savedResult, parsed enteredNumber)
     else {
+      // if no entered number, just replace the queued op with the new op
+      if (!enteredNumber) {
+        operator = parseOperator(operatorString);
+        return;
+      }
       console.log(operator);
       savedResult = operate(operator, savedResult, +enteredNumber);
       console.log(savedResult);
@@ -84,7 +90,6 @@ operatorBtnContainer.addEventListener("click", (event) => {
     // parse and save new operator, and flush entered number
     enteredNumber = "";
     updateDisplay();
-    const operatorString = event.target.value;
     operator = parseOperator(operatorString);
   }
 });
@@ -126,7 +131,7 @@ clearBtn.addEventListener("click", () => {
 // 2. flush entryNum
 // 3. queue the new operator
 // where there is a queued op but no etry num:
-// 1. ERROR need to enter a number
+// 1. replace the queued op with the new op
 
 // equal button press:
 // when there is a queued op and an entry num, operate as normal and remove the queued op
