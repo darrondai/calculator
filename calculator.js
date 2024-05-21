@@ -56,7 +56,11 @@ operatorBtnContainer.addEventListener("click", (event) => {
     // if no previously queued operator, we save the entered number to the saved result
     // should be able to overwrite previous savedresult as long as no queued operator
     if (!operator) {
-      savedResult = +enteredNumber;
+      console.log("no queued operator");
+      // only if there is an entered number do we overwrite, otherwise it just keeps the old saved res
+      if (enteredNumber) {
+        savedResult = +enteredNumber;
+      }
     }
     // otherwise, calc using previously saved operator(savedResult, parsed enteredNumber)
     else {
@@ -105,8 +109,11 @@ clearBtn.addEventListener("click", () => {
 // 1. calc with queued operator with savedRes and entryNum
 // 2. flush entryNum
 // 3. queue the new operator
+// where there is a queued op but no etry num:
+// 1. ERROR need to enter a number
 
 // equal button press:
+// when there is a queued op and an entry num, operate as normal and remove the queued op
 // when there is no queued operator but there is an entry num, set savedRes to entry num
 // when there is a queued operator but no entry num: alert "no second number" or just treat it as 0
 // when there is no queued operator nor entry num: do nothing (display same savedRes)
