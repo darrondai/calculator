@@ -97,10 +97,18 @@ operatorBtnContainer.addEventListener("click", (event) => {
 // equal button
 const equalBtn = document.querySelector("#equal-btn");
 equalBtn.addEventListener("click", () => {
-  savedResult = operate(operator, savedResult, +enteredNumber);
-  operator = "";
-  enteredNumber = "";
-  updateDisplay();
+  if (operator && enteredNumber) {
+    savedResult = operate(operator, savedResult, +enteredNumber);
+    operator = null;
+    enteredNumber = "";
+    updateDisplay();
+  } else if (enteredNumber) {
+    savedResult = +enteredNumber;
+    enteredNumber = "";
+    updateDisplay();
+  } else if (operator) {
+    alert("Please enter a second number for the operation");
+  }
   console.log(savedResult);
 });
 
