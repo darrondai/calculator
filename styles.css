@@ -1,0 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+.calc-frame {
+  background-color: grey;
+  border: 2px solid black;
+}
