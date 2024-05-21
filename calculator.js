@@ -53,7 +53,7 @@ function updateDisplay() {
   }
 }
 
-const numBtnContainer = document.querySelector(".number-btn-container");
+const numBtnContainer = document.querySelector(".numbers-container");
 numBtnContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
     // string concatenation
@@ -63,7 +63,7 @@ numBtnContainer.addEventListener("click", (event) => {
   }
 });
 
-const operatorBtnContainer = document.querySelector(".operator-btn-container");
+const operatorBtnContainer = document.querySelector(".operators-container");
 operatorBtnContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
     const operatorString = event.target.value;
