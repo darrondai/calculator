@@ -65,6 +65,13 @@ numBtnContainer.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("keydown", (event) => {
+  if (event.key.match(/[0-9]/)) {
+    enteredNumber += event.key;
+    updateDisplay();
+  }
+});
+
 const decimalBtn = document.querySelector("#decimal-btn");
 decimalBtn.addEventListener("click", () => (decimalBtn.disabled = true));
 
