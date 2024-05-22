@@ -43,6 +43,12 @@ body {
 button {
   aspect-ratio: 1 / 1;
   flex-basis: calc(100% / 3);
+  font-size: xx-large;
+}
+
+#clear-btn,
+#back-btn {
+  font-size: large;
 }
 
 .operator-side {
