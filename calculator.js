@@ -43,6 +43,7 @@ function parseOperator(operatorString) {
 let operator;
 let savedResult = 0;
 let enteredNumber = "";
+let hasDecimal = false;
 
 const display = document.querySelector(".display");
 function updateDisplay() {
@@ -62,6 +63,9 @@ numBtnContainer.addEventListener("click", (event) => {
     console.log(enteredNumber);
   }
 });
+
+const decimalBtn = document.querySelector("#decimal-btn");
+decimalBtn.addEventListener("click", () => (decimalBtn.disabled = true));
 
 const operatorBtnContainer = document.querySelector(".operators-container");
 operatorBtnContainer.addEventListener("click", (event) => {
@@ -89,6 +93,7 @@ operatorBtnContainer.addEventListener("click", (event) => {
     }
     // parse and save new operator, and flush entered number
     enteredNumber = "";
+    decimalBtn.disabled = false;
     updateDisplay();
     operator = parseOperator(operatorString);
   }
@@ -109,7 +114,7 @@ equalBtn.addEventListener("click", () => {
   } else if (operator) {
     alert("Please enter a second number for the operation");
   }
-  console.log(savedResult);
+  decimalBtn.disabled = false;
 });
 
 // clear button
@@ -118,6 +123,7 @@ clearBtn.addEventListener("click", () => {
   operator = "";
   savedResult = 0;
   enteredNumber = "";
+  decimalBtn.disabled = false;
   updateDisplay();
 });
 
