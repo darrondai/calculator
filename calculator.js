@@ -49,7 +49,7 @@ function updateDisplay() {
   if (enteredNumber) {
     display.textContent = enteredNumber;
   } else {
-    display.textContent = savedResult;
+    display.textContent = Math.round(savedResult * 100000) / 100000;
   }
 }
 
