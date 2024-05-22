@@ -53,6 +53,8 @@ function updateDisplay() {
   }
 }
 
+// number button press:
+// append the number to the entry string
 const numBtnContainer = document.querySelector(".numbers-container");
 numBtnContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
@@ -66,6 +68,18 @@ numBtnContainer.addEventListener("click", (event) => {
 const decimalBtn = document.querySelector("#decimal-btn");
 decimalBtn.addEventListener("click", () => (decimalBtn.disabled = true));
 
+// operator button press:
+// when no queued op and no entryNum:
+// 1. queue the new operator
+// when there is no queued operator but an entryNum:
+// 1. set savedRes to entryNum
+// 2. queue the new operator
+// when there is a queued operator and entryNum:
+// 1. calc with queued operator with savedRes and entryNum
+// 2. flush entryNum
+// 3. queue the new operator
+// where there is a queued op but no etry num:
+// 1. replace the queued op with the new op
 const operatorBtnContainer = document.querySelector(".operators-container");
 operatorBtnContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
@@ -99,6 +113,10 @@ operatorBtnContainer.addEventListener("click", (event) => {
 });
 
 // equal button
+// when there is a queued op and an entry num, operate as normal and remove the queued op
+// when there is no queued operator but there is an entry num, set savedRes to entry num
+// when there is a queued operator but no entry num: alert "no second number" or just treat it as 0
+// when there is no queued operator nor entry num: do nothing (display same savedRes)
 const equalBtn = document.querySelector("#equal-btn");
 equalBtn.addEventListener("click", () => {
   if (operator && enteredNumber) {
@@ -125,29 +143,3 @@ clearBtn.addEventListener("click", () => {
   decimalBtn.disabled = false;
   updateDisplay();
 });
-
-// show the saved result after operating, and use it as the first number for any operation
-// when the entered number is empty, show the saved result in the display instead
-// only show the entered number until either an operation is pressed or the equal
-
-// number button press:
-// append the number to the entry string
-
-// operator button press:
-// when no queued op and no entryNum:
-// 1. queue the new operator
-// when there is no queued operator but an entryNum:
-// 1. set savedRes to entryNum
-// 2. queue the new operator
-// when there is a queued operator and entryNum:
-// 1. calc with queued operator with savedRes and entryNum
-// 2. flush entryNum
-// 3. queue the new operator
-// where there is a queued op but no etry num:
-// 1. replace the queued op with the new op
-
-// equal button press:
-// when there is a queued op and an entry num, operate as normal and remove the queued op
-// when there is no queued operator but there is an entry num, set savedRes to entry num
-// when there is a queued operator but no entry num: alert "no second number" or just treat it as 0
-// when there is no queued operator nor entry num: do nothing (display same savedRes)
