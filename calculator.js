@@ -43,7 +43,6 @@ function parseOperator(operatorString) {
 let operator;
 let savedResult = 0;
 let enteredNumber = "";
-let hasDecimal = false;
 
 const display = document.querySelector(".display");
 function updateDisplay() {
