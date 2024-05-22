@@ -41,6 +41,7 @@ button:hover {
   border-radius: 8px;
   padding: 8px;
   margin-bottom: 8px;
+  overflow: hidden;
 }
 
 .main-container {
