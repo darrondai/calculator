@@ -7,6 +7,17 @@ body {
   justify-content: center;
 }
 
+button {
+  aspect-ratio: 1 / 1;
+  flex-basis: calc(100% / 3);
+  font-size: xx-large;
+  border: 2px solid grey;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
 .calc-frame {
   aspect-ratio: 2 / 3;
   width: 500px;
@@ -41,10 +52,8 @@ body {
   flex-wrap: wrap;
 }
 
-button {
-  aspect-ratio: 1 / 1;
-  flex-basis: calc(100% / 3);
-  font-size: xx-large;
+.number-btn {
+  background-color: plum;
 }
 
 #clear-btn,
@@ -64,9 +73,9 @@ button {
 }
 
 .op-btn {
-  background-color: gold;
+  background-color: burlywood;
 }
 
 #equal-btn {
-  background-color: cyan;
+  background-color: turquoise;
 }
