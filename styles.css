@@ -53,6 +53,17 @@ button:hover {
   display: flex;
 }
 
+#clear-btn,
+#back-btn {
+  font-size: large;
+}
+
+#zero-btn,
+#clear-btn {
+  flex-basis: calc(200% / 3);
+  aspect-ratio: 2 / 1;
+}
+
 .numbers-container {
   display: flex;
   flex-wrap: wrap;
@@ -60,11 +71,6 @@ button:hover {
 
 .number-btn {
   background-color: plum;
-}
-
-#clear-btn,
-#back-btn {
-  font-size: large;
 }
 
 .operator-side {
